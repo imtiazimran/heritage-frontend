@@ -5,7 +5,7 @@ import { FaFacebook, FaFingerprint, FaLinkedin, FaTwitter } from "react-icons/fa
 
 function Footer() {
   return (
-    <footer className={cn("bg-[#ECF5FF] text-gray-700 py-16")}>
+    <footer className={cn("bg-accent text-gray-700 py-16")}>
       <Container className="grid grid-cols-8 gap-8 justify-items-center my-5">
         <div className={cn(" col-span-3")}>
           <div>

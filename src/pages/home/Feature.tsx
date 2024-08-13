@@ -36,7 +36,7 @@ const Feature = () => {
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
           </p>
-          <Button className="w-[210px] h-[56px] px-6 py-4 bg-[#ECF5FF] text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+          <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
           <FaSearch className="mx-4 text-xl "/> Find Property
           </Button>
         </div>
@@ -56,7 +56,7 @@ const Feature = () => {
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
           </p>
-          <Button className="w-[210px] h-[56px] px-6 py-4 bg-[#ECF5FF] text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+          <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
            <FaSearch className="mx-4 text-xl "/> Find Property
           </Button>
         </div>
@@ -107,7 +107,7 @@ const Feature = () => {
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
           </p>
-          <Button className="w-[210px] h-[56px] px-6 py-4 bg-[#ECF5FF] text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+          <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
           <FaSearch className="mx-4 text-xl "/> Find Property
           </Button>
         </div>
