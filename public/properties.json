@@ -1,0 +1,228 @@
+[
+  {
+    "id": 1,
+    "title": "3 BHK Builder Floor for Sale in Site Ram Bazar New Delhi",
+    "location": "Meadowshire Park, Greenfield, USA",
+    "price": "25000",
+    "totalArea": "891 sq.ft",
+    "status": "Ready to Move",
+    "image": [
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png"
+    ],
+    "details": [
+      {
+        "label": "Total Area",
+        "value": "891 sq.ft",
+        "icon": "../src/assets/propertiesDetail1.png"
+      },
+      {
+        "label": "Status",
+        "value": "Ready to Move",
+        "icon": "../src/assets/propertiesDetail2.png"
+      },
+      {
+        "label": "Other Detail",
+        "value": "891 sq.ft",
+        "icon": "../src/assets/propertiesDetail3.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "2 BHK Apartment for Rent in Downtown Los Angeles",
+    "location": "Downtown, Los Angeles, USA",
+    "price": "1800",
+    "totalArea": "750 sq.ft",
+    "status": "Available Now",
+    "image": [
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png"
+    ],
+    "details": [
+      {
+        "label": "Total Area",
+        "value": "750 sq.ft",
+        "icon": "../src/assets/propertiesDetail1.png"
+      },
+      {
+        "label": "Status",
+        "value": "Available Now",
+        "icon": "../src/assets/propertiesDetail2.png"
+      },
+      {
+        "label": "View",
+        "value": "City View",
+        "icon": "../src/assets/propertiesDetail3.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "4 BHK Villa for Sale in Beverly Hills",
+    "location": "Beverly Hills, California, USA",
+    "price": "500000",
+    "totalArea": "3000 sq.ft",
+    "status": "For Sale",
+    "image": [
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png"
+    ],
+    "details": [
+      {
+        "label": "Total Area",
+        "value": "3000 sq.ft",
+        "icon": "../src/assets/propertiesDetail1.png"
+      },
+      {
+        "label": "Status",
+        "value": "For Sale",
+        "icon": "../src/assets/propertiesDetail2.png"
+      },
+      {
+        "label": "Garden",
+        "value": "Yes",
+        "icon": "../src/assets/propertiesDetail3.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Studio Apartment for Rent in Manhattan",
+    "location": "Manhattan, New York, USA",
+    "price": "2200",
+    "totalArea": "400 sq.ft",
+    "status": "Available Soon",
+    "image": [
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png"
+    ],
+    "details": [
+      {
+        "label": "Total Area",
+        "value": "400 sq.ft",
+        "icon": "../src/assets/propertiesDetail1.png"
+      },
+      {
+        "label": "Status",
+        "value": "Available Soon",
+        "icon": "../src/assets/propertiesDetail2.png"
+      },
+      {
+        "label": "Furniture",
+        "value": "Furnished",
+        "icon": "../src/assets/propertiesDetail3.png"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "3 BHK House for Sale in San Francisco",
+    "location": "San Francisco, California, USA",
+    "price": "350000",
+    "totalArea": "1200 sq.ft",
+    "status": "For Sale",
+    "image": [
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png"
+    ],
+    "details": [
+      {
+        "label": "Total Area",
+        "value": "1200 sq.ft",
+        "icon": "../src/assets/propertiesDetail1.png"
+      },
+      {
+        "label": "Status",
+        "value": "For Sale",
+        "icon": "../src/assets/propertiesDetail2.png"
+      },
+      {
+        "label": "Parking",
+        "value": "2 Cars",
+        "icon": "../src/assets/propertiesDetail3.png"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "2 BHK Flat for Rent in Seattle",
+    "location": "Seattle, Washington, USA",
+    "price": "1500",
+    "totalArea": "800 sq.ft",
+    "status": "Available Now",
+    "image": [
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png"
+    ],
+    "details": [
+      {
+        "label": "Total Area",
+        "value": "800 sq.ft",
+        "icon": "../src/assets/propertiesDetail1.png"
+      },
+      {
+        "label": "Status",
+        "value": "Available Now",
+        "icon": "../src/assets/propertiesDetail2.png"
+      },
+      {
+        "label": "Balcony",
+        "value": "Yes",
+        "icon": "../src/assets/propertiesDetail3.png"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "5 BHK Mansion for Sale in Miami",
+    "location": "Miami, Florida, USA",
+    "price": "1,200,000",
+    "totalArea": "5000 sq.ft",
+    "status": "For Sale",
+    "image": [
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png",
+      "../src/assets/propertyPhoto.png"
+    ],
+    "details": [
+      {
+        "label": "Total Area",
+        "value": "5000 sq.ft",
+        "icon": "../src/assets/propertiesDetail1.png"
+      },
+      {
+        "label": "Status",
+        "value": "For Sale",
+        "icon": "../src/assets/propertiesDetail2.png"
+      },
+      {
+        "label": "Pool",
+        "value": "Yes",
+        "icon": "../src/assets/propertiesDetail3.png"
+      }
+    ]
+  }
+]

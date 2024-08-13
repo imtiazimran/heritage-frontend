@@ -13,7 +13,6 @@ const FlatSummery = () => {
   return (
     <Container>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-    
         <Card className="bg-[#FDF0E7]">
           <CardHeader>
             <CardTitle className="text-secondary">2K+</CardTitle>

@@ -7,6 +7,8 @@
 
 @layer base {
   :root {
+    --title: 221, 39%, 11%;
+    --subtitle: 220, 8%, 46% ;
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -68,5 +70,25 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .carousel-content {
+    @apply flex overflow-x-auto;
+  }
+  .carousel-item {
+    @apply min-w-[385px] flex-shrink-0;
+  }
+  .carousel-container {
+    @apply w-full overflow-x-auto;
+  }
+  .title {
+    @apply text-title;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 40px ;
+  }
+  .subtitle {
+    @apply text-subtitle;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
   }
 }
