@@ -1,4 +1,5 @@
 import Navbar from "@/components/common/Navbar";
+import FlatSummery from "@/pages/buyerScreen/FlatSummery";
 import Header from "@/pages/buyerScreen/Header";
 
 const BuyerScreen = () => {
@@ -6,6 +7,7 @@ const BuyerScreen = () => {
         <div>
             <Navbar/>
             <Header/>
+            <FlatSummery/>
         </div>
     );
 };
