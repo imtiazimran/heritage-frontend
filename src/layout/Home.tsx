@@ -1,6 +1,8 @@
+import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import Feature from "@/pages/home/Feature";
 import Header from "@/pages/home/Header";
+import OtherServices from "@/pages/home/OtherServices";
 
 const Home = () => {
     return (
@@ -8,6 +10,8 @@ const Home = () => {
           <Navbar/>
           <Header/>
           <Feature/>
+          <OtherServices/>
+          <Footer/>
         </div>
     );
 };

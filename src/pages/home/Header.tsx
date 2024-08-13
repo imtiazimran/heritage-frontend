@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { FaSearch } from "react-icons/fa";
 
 
 const Header = () => {
@@ -16,7 +17,7 @@ const Header = () => {
                     className="bg-primary text-white text-[16px] font-medium rounded-tl-[4px] rounded-br-[4px] px-[24px] py-[16px] gap-[12px] opacity-100"
                     style={{ width: '210px', height: '56px' }}
                 >
-                    Find Property
+                   <FaSearch/> Find Property
                 </Button>
             </div>
         </div>
