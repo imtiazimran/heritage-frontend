@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -39,7 +41,21 @@ const Locations = [
   "All",
 ];
 
+const propertyTypes = ["Apartment", "Plot", "Builder Floor", "Villa"];
+
 const Header = () => {
+  const [query, setQuery] = useState({
+    search: "",
+    location: "",
+    propertyType: "",
+    budget: "",
+    tab: "plot",
+  });
+
+  const handleInputChange = (e: any) => {
+    setQuery({ ...query, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="h-screen">
       <div
@@ -52,7 +68,11 @@ const Header = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black/90"></div>
         <div className="absolute top-[25%] inset-0 flex flex-col items-center py-8 text-center px-4 w-[984px] h-[376px] rounded shadow-lg bg-white mx-auto">
           <div>
-            <Tabs defaultValue="plot" className="w-full bg-white">
+            <Tabs
+              defaultValue="plot"
+              className="w-full bg-white"
+              onValueChange={(value) => setQuery({ ...query, tab: value })}
+            >
               <TabsList className="bg-white border-b block w-[900px] mx-auto text-left">
                 {tabOptions.map((tab) => (
                   <TabsTrigger key={tab.value} value={tab.value}>
@@ -67,6 +87,9 @@ const Header = () => {
                     <FaSearch className="absolute left-3 top-2/4 transform -translate-y-1/2 text-gray-400" />
                     <Input
                       type="text"
+                      name="search"
+                      value={query.search}
+                      onChange={handleInputChange}
                       className="w-full p-4 pl-10 rounded-md border border-gray-200 focus:border-blue-500"
                       placeholder="Search"
                     />
@@ -77,7 +100,11 @@ const Header = () => {
                         <FaLocationPin className="text-secondary" />
                         Your Location
                       </p>
-                      <Select>
+                      <Select
+                        onValueChange={(value) =>
+                          setQuery({ ...query, location: value })
+                        }
+                      >
                         <SelectTrigger className="w-[180px] bg-accent">
                           <SelectValue placeholder="" />
                         </SelectTrigger>
@@ -96,14 +123,18 @@ const Header = () => {
                         <FaHome className="text-secondary" />
                         Property Type
                       </p>
-                      <Select>
+                      <Select
+                        onValueChange={(value) =>
+                          setQuery({ ...query, propertyType: value })
+                        }
+                      >
                         <SelectTrigger className="w-[180px] bg-accent">
                           <SelectValue placeholder="" />
                         </SelectTrigger>
                         <SelectContent>
-                          {Locations.map((location) => (
-                            <SelectItem key={location} value={location}>
-                              {location}
+                          {propertyTypes.map((type) => (
+                            <SelectItem key={type} value={type}>
+                              {type}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -115,12 +146,17 @@ const Header = () => {
                         <FaDollarSign className="text-secondary" />
                         Budget
                       </p>
-                      <Input className="w-[180px] bg-accent" />
+                      <Input
+                        name="budget"
+                        value={query.budget}
+                        onChange={handleInputChange}
+                        className="w-[180px] bg-accent"
+                      />
                     </div>
                   </div>
                   <Link
                     className="flex justify-center items-center gap-2"
-                    to={"/searchResult"}
+                    to={`/searchResult?tab=${query.tab}&search=${query.search}&location=${query.location}&propertyType=${query.propertyType}&budget=${query.budget}`}
                   >
                     <Button className="bg-primary text-white text-[16px] font-medium rounded-tl-[4px] rounded-br-[4px] px-[24px] py-[16px] gap-[12px] opacity-100 w-full hover:bg-blue-800">
                       <FaSearch /> <span>Find Property</span>

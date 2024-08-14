@@ -10,8 +10,12 @@ import Amenities from "@/pages/propertyDetails.tsx/Amenities";
 import OtherServices from "@/pages/home/OtherServices";
 import Container from "@/utils/Container";
 import PropertiesGridView from "@/components/propertyView/PropertiesGridView";
+import { useGetPropertiesQuery } from "@/redux/features/properties/propertyApi";
 
 const PropertyDetailsLayout = ({ property, value, setValue }: {property: IProperty, value: number[], setValue: (value: number[]) => void}) => {
+
+  const {data, isLoading} = useGetPropertiesQuery(undefined);
+  const properties = data?.data;
   return (
     <div>
       <Container> 
@@ -26,10 +30,10 @@ const PropertyDetailsLayout = ({ property, value, setValue }: {property: IProper
           <h1 className="text-[18px] font-extrabold">${property.price}</h1>
         </div>
 
-        <div className="flex">
+        <div className="flex gap-5 flex-col md:flex-row">
           <div className="w-[70%]">
             <img
-              className="w-full h-[400px] object-cover"
+              className="w-full px-2 h-[400px] object-cover"
               src={property.image[0]}
               alt={property.title}
             />
@@ -120,7 +124,12 @@ const PropertyDetailsLayout = ({ property, value, setValue }: {property: IProper
         <Amenities/>
       </Container>
       <OtherServices/>
-      <PropertiesGridView title="Similar Properties"/>
+      <PropertiesGridView
+        properties={properties}
+        isLoading={isLoading}
+        seeAllLink={"/searchResult"}
+        title="Popular Property"
+      />
     </div>
   );
 };

@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import  { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import Container from "@/utils/Container";
 import { FaLocationPin } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useGetPropertiesQuery } from "@/redux/features/properties/propertyApi";
+import Pagination from "@/utils/Pagination"; // Adjust the import path as needed
+import Loading from '@/utils/Loading';
 
 // Define the types for the property details and the property itself
 interface PropertyDetail {
@@ -23,20 +26,45 @@ export interface IProperty {
 }
 
 const SearchResults = () => {
-  const [properties, setProperties] = useState<IProperty[]>([]);
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const [limit, setLimit] = useState(10); // Default limit
+  const [page, setPage] = useState(1);
+
+  const searchQuery = {
+    search: params.get("search"),
+    location: params.get("location"),
+    propertyType: params.get("propertyType"),
+    price: params.get("budget"),
+    page: page,
+    limit: limit,
+  };
+
+  const searchParams = Object.entries(searchQuery)
+    .filter(([, value]) => value) // Filter out empty values
+    .map(([key, value]) => ({ name: key, value }));
+
+  const { data, isLoading } = useGetPropertiesQuery(searchParams);
+  const properties = data?.data;
+  const pagination = data?.meta;
 
   useEffect(() => {
-    // Fetch the JSON data from the public folder
-    fetch("/properties.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json(); // Parse the JSON data
-      })
-      .then((data) => setProperties(data))
-      .catch((error) => console.error("Error fetching properties:", error));
-  }, []);
+    // Trigger data fetch whenever `page` or `limit` changes
+    // The API hook will handle the new request automatically
+  }, [page, limit]);
+
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+  };
+
+  const handleLimitChange = (newLimit: number) => {
+    setLimit(newLimit);
+    setPage(1); // Reset to the first page when limit changes
+  };
+
+  if (isLoading) {
+    return <Loading/>;
+  }
 
   return (
     <Container className="py-10">
@@ -53,17 +81,18 @@ const SearchResults = () => {
               Pre-Launch Offers
             </Button>
           </div>
-          <h1 className="text-xl font-bold">
-            {properties.length} Results on Rental
+          <h1 className="text-xl font-bold my-4">
+            {pagination?.total} Results on {params.get("tab")}
+            
           </h1>
         </div>
         <div>
-          {properties.map((property) => (
+          {properties?.map((property: IProperty) => (
             <Link key={property.id} to={`/propertyDetails/${property.id}`}>
               <div className="grid grid-cols-4 gap-2 mb-10">
                 <div>
                   <img
-                    className="w-full h-auto object-cover rounded-lg"
+                    className="w-full h-full object-cover rounded-lg"
                     src={property.image[0]}
                     alt={property.title}
                   />
@@ -81,7 +110,7 @@ const SearchResults = () => {
                     </div>
                     <div>
                       <h1 className="text-[18px] font-semibold">
-                        {property.price}
+                        ${property.price}
                       </h1>
                       <Button variant={"outline"} className="my-3">
                         Bid Property
@@ -90,25 +119,27 @@ const SearchResults = () => {
                   </div>
                   <div>
                     <div className="flex items-center">
-                      <span className="ml-2 w-[30%]">Property Details</span>
+                      <span className="ml-2 w-[35%]">Property Details</span>
                       <span className="w-full border-t border-gray-400"></span>
                     </div>
                     <div className="flex justify-between mt-4">
-                      {property.details.map((detail, index) => (
-                        <div key={index} className="flex gap-2 items-center">
-                          <img
-                            className="size-10"
-                            src={detail.icon}
-                            alt={detail.label}
-                          />
-                          <div>
-                            <h1 className="font-medium text-[#303030]">
-                              {detail.label}
-                            </h1>
-                            <p className="text-[#535353]">{detail.value}</p>
+                      {property.details.map(
+                        (detail: PropertyDetail, index: number) => (
+                          <div key={index} className="flex gap-2 items-center">
+                            <img
+                              className="size-10"
+                              src={detail.icon}
+                              alt={detail.label}
+                            />
+                            <div>
+                              <h1 className="font-medium text-[#303030]">
+                                {detail.label}
+                              </h1>
+                              <p className="text-[#535353]">{detail.value}</p>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
@@ -116,6 +147,16 @@ const SearchResults = () => {
             </Link>
           ))}
         </div>
+        {pagination && (
+          <Pagination
+            page={pagination?.page}
+            limit={pagination?.limit}
+            total={pagination?.total}
+            totalPage={pagination?.totalPage}
+            onPageChange={handlePageChange}
+            onLimitChange={handleLimitChange}
+          />
+        )}
       </div>
     </Container>
   );

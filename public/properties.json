@@ -3,12 +3,22 @@
     "id": 1,
     "title": "3 BHK Builder Floor for Sale in Site Ram Bazar New Delhi",
     "location": "Meadowshire Park, Greenfield, USA",
+    "area": "891 sq.ft",
+    "description": "3 BHK Builder Floor for Sale in Site Ram Bazar New Delhi",
     "price": "25000",
     "totalArea": "891 sq.ft",
+    "owner": "66b924786b7b501bbb4c823c",
+    "currentBid": 0,
+    "highestBidder": null,
     "status": "Ready to Move",
     "image": [
-      "../src/assets/propertyPhoto.png",
-      "../src/assets/propertyPhoto.png"
+      "https://cc-prod.scene7.com/is/image/CCProdAuthor/real-estate-photography-P1-desktop?$pjpeg$&jpegSize=100&wid=640",
+      "https://homejab.com/wp-content/uploads/2021/10/2109_Monticello_Ct__Round_Rock__TX_78665__USA-20210322020630.jpg",
+      "https://homejab.com/wp-content/uploads/2021/11/https-__realtor.homejab.com_wp-content_uploads_2021_10_1906_Santa_Clara_Ave__Alameda__CA_94501__USA-20210131235707-1.jpg",
+      "https://homejab.com/wp-content/uploads/2021/11/https-__realtor.homejab.com_wp-content_uploads_2021_10_593_Scott_Cir__Decatur__GA_30033__USA-20210503002911-1536x1024.jpg",
+      "https://homejab.com/wp-content/uploads/2021/11/https-__realtor.homejab.com_wp-content_uploads_2021_10_362_W_Hornbeam_Dr__Longwood__FL_32779__USA-20210822231018-1536x1024.jpg",
+      "https://homejab.com/wp-content/uploads/2021/11/1905_Pine_Dr__Raleigh__NC_27608__USA-20200519091409-2-1024x684-1.webp",
+      "https://homejab.com/wp-content/uploads/2021/10/420_Creek_Rd__Downingtown__PA_19335__USA-20171129222013-1.jpg"
     ],
     "details": [
       {
@@ -69,13 +79,13 @@
     "totalArea": "3000 sq.ft",
     "status": "For Sale",
     "image": [
-      "../src/assets/propertyPhoto.png",
-      "../src/assets/propertyPhoto.png",
-      "../src/assets/propertyPhoto.png",
-      "../src/assets/propertyPhoto.png",
-      "../src/assets/propertyPhoto.png",
-      "../src/assets/propertyPhoto.png",
-      "../src/assets/propertyPhoto.png"
+      "https://cc-prod.scene7.com/is/image/CCProdAuthor/real-estate-photography-P1-desktop?$pjpeg$&jpegSize=100&wid=640",
+      "https://homejab.com/wp-content/uploads/2021/10/2109_Monticello_Ct__Round_Rock__TX_78665__USA-20210322020630.jpg",
+      "https://homejab.com/wp-content/uploads/2021/11/https-__realtor.homejab.com_wp-content_uploads_2021_10_1906_Santa_Clara_Ave__Alameda__CA_94501__USA-20210131235707-1.jpg",
+      "https://homejab.com/wp-content/uploads/2021/11/https-__realtor.homejab.com_wp-content_uploads_2021_10_593_Scott_Cir__Decatur__GA_30033__USA-20210503002911-1536x1024.jpg",
+      "https://homejab.com/wp-content/uploads/2021/11/https-__realtor.homejab.com_wp-content_uploads_2021_10_362_W_Hornbeam_Dr__Longwood__FL_32779__USA-20210822231018-1536x1024.jpg",
+      "https://homejab.com/wp-content/uploads/2021/11/1905_Pine_Dr__Raleigh__NC_27608__USA-20200519091409-2-1024x684-1.webp",
+      "https://homejab.com/wp-content/uploads/2021/10/420_Creek_Rd__Downingtown__PA_19335__USA-20171129222013-1.jpg"
     ],
     "details": [
       {
