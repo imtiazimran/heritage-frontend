@@ -12,7 +12,7 @@ import Container from "@/utils/Container";
 import PropertiesGridView from "@/components/propertyView/PropertiesGridView";
 import { useGetPropertiesQuery } from "@/redux/features/properties/propertyApi";
 
-const PropertyDetailsLayout = ({ property, value, setValue }: {property: IProperty, value: number[], setValue: (value: number[]) => void}) => {
+const PropertyDetailsLayout = ({ property, value, setValue, handleBid }: {property: IProperty, value: number[], setValue: (value: number[]) => void, handleBid: () => void}) => {
 
   const {data, isLoading} = useGetPropertiesQuery(undefined);
   const properties = data?.data;
@@ -103,7 +103,7 @@ const PropertyDetailsLayout = ({ property, value, setValue }: {property: IProper
                   </div>
                 </div>
                 <div className="flex justify-center items-center pb-4">
-                  <Button className="bg-primary text-white text-[16px] font-medium rounded-tl-[4px] rounded-br-[4px] px-[24px] py-[16px] gap-[12px] hover:bg-blue-950 opacity-100">
+                  <Button type="submit" onClick={handleBid} className="bg-primary text-white text-[16px] font-medium rounded-tl-[4px] rounded-br-[4px] px-[24px] py-[16px] gap-[12px] hover:bg-blue-950 opacity-100">
                     Bid Property
                   </Button>
                 </div>
