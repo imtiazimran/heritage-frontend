@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/utils/Container";
 import { FaPlayCircle, FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Feature = () => {
   return (
@@ -15,8 +16,8 @@ const Feature = () => {
             className="w-[70%] h-full object-cover rounded-lg"
           />
           {/* Overlay Image */}
-          
-          <FaPlayCircle className=" z-50 text-primary absolute right-[24%] text-5xl bottom-[20%]"/>
+
+          <FaPlayCircle className=" z-50 text-primary absolute right-[24%] text-5xl bottom-[20%]" />
           <img
             src="https://bandaproperty.com/wp-content/uploads/2023/06/230518-Banda-Paris-02-Print-scaled.jpg"
             alt="Overlay Image"
@@ -36,9 +37,11 @@ const Feature = () => {
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
           </p>
-          <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
-          <FaSearch className="mx-4 text-xl "/> Find Property
-          </Button>
+          <Link to={"/buy"}>
+            <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+              <FaSearch className="mx-4 text-xl " /> Find Property
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -56,9 +59,11 @@ const Feature = () => {
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
           </p>
-          <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
-           <FaSearch className="mx-4 text-xl "/> Find Property
-          </Button>
+          <Link to={"/buy"}>
+            <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+              <FaSearch className="mx-4 text-xl " /> Find Property
+            </Button>
+          </Link>
         </div>
         <div className="w-full md:w-1/2 h-64 relative mb-8 md:mb-0">
           <img
@@ -67,8 +72,8 @@ const Feature = () => {
             className="w-[70%] absolute top-2/4 left-0 h-full object-cover rounded-lg"
           />
           {/* Overlay Image */}
-          
-          <FaPlayCircle className=" z-50 text-primary absolute left-[20%] text-5xl top-[35%]"/>
+
+          <FaPlayCircle className=" z-50 text-primary absolute left-[20%] text-5xl top-[35%]" />
           <img
             src="https://bandaproperty.com/wp-content/uploads/2023/06/230518-Banda-Paris-02-Print-scaled.jpg"
             alt="Overlay Image"
@@ -87,7 +92,7 @@ const Feature = () => {
             className="w-[70%] h-full object-cover rounded-lg"
           />
           {/* Overlay Image */}
-          <FaPlayCircle className=" z-50 text-primary absolute right-[24%] text-5xl bottom-[20%]"/>
+          <FaPlayCircle className=" z-50 text-primary absolute right-[24%] text-5xl bottom-[20%]" />
           <img
             src="https://bandaproperty.com/wp-content/uploads/2023/06/230518-Banda-Paris-02-Print-scaled.jpg"
             alt="Overlay Image"
@@ -107,9 +112,11 @@ const Feature = () => {
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
           </p>
-          <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
-          <FaSearch className="mx-4 text-xl "/> Find Property
-          </Button>
+          <Link to={"/buy"}>
+            <Button className="w-[210px] h-[56px] px-6 py-4 bg-accent text-primary font-semibold text-base rounded-l-xl border border-transparent shadow-md transition-opacity duration-300 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+              <FaSearch className="mx-4 text-xl " /> Find Property
+            </Button>
+          </Link>
         </div>
       </div>
     </Container>

@@ -118,11 +118,14 @@ const Header = () => {
                       <Input className="w-[180px] bg-accent" />
                     </div>
                   </div>
-                  <Button className="bg-primary text-white text-[16px] font-medium rounded-tl-[4px] rounded-br-[4px] px-[24px] py-[16px] gap-[12px] opacity-100 w-full hover:bg-blue-800">
-                    <Link className="flex justify-center items-center gap-2" to={'/searchResult'}>
-                      <FaSearch /> <span>Find Property</span> 
-                    </Link>
-                  </Button>
+                  <Link
+                    className="flex justify-center items-center gap-2"
+                    to={"/searchResult"}
+                  >
+                    <Button className="bg-primary text-white text-[16px] font-medium rounded-tl-[4px] rounded-br-[4px] px-[24px] py-[16px] gap-[12px] opacity-100 w-full hover:bg-blue-800">
+                      <FaSearch /> <span>Find Property</span>
+                    </Button>
+                  </Link>
                 </TabsContent>
               ))}
             </Tabs>

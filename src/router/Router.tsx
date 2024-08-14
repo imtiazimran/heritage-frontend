@@ -3,6 +3,8 @@ import About from "@/layout/About";
 import BuyerScreen from "@/layout/BuyerScreen";
 import BuyerSearchResult from "@/layout/BuyerSearchResult";
 import Home from "@/layout/Home";
+import Login from "@/pages/Authenticaton/Login";
+import Register from "@/pages/Authenticaton/Register";
 import PropertyDetails from "@/pages/propertyDetails.tsx/PropertyDetails";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -30,7 +32,16 @@ export const router = createBrowserRouter([
         {
           path: '/about',
           element: <About />
-        }
+        },
       ],
+
     },
+    {
+      path: '/login',
+      element: <Login />
+    },
+    {
+      path: '/register',
+      element: <Register/>
+    }
   ]);
