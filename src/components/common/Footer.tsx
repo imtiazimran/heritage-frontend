@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Container from "@/utils/Container";
 import logo from "../../assets/logo.png";
 import { FaFacebook, FaFingerprint, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -52,7 +53,7 @@ function Footer() {
           </h3>
           <ul className="text-muted text-[16px] font-semibold">
             <li>
-              <a href="/about-us">About us</a>
+              <Link to="/about">About us</Link>
             </li>
             <li>
               <a href="/careers">Careers</a>
@@ -134,7 +135,7 @@ function Footer() {
           </h3>
           <ul className="text-muted text-[16px] font-semibold">
             <li>
-              <a href="/about-us">Term</a>
+              <Link to="/about">Term</Link>
             </li>
             <li>
               <a href="/careers">Privacy</a>

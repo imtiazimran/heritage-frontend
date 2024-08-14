@@ -1,4 +1,5 @@
 import App from "@/App";
+import About from "@/layout/About";
 import BuyerScreen from "@/layout/BuyerScreen";
 import BuyerSearchResult from "@/layout/BuyerSearchResult";
 import Home from "@/layout/Home";
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
         {
           path: 'propertyDetails/:id',
           element: <PropertyDetails/>
+        },
+        {
+          path: '/about',
+          element: <About />
         }
       ],
     },

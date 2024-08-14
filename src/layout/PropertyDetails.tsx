@@ -8,11 +8,13 @@ import { IProperty } from "@/pages/BuyerSearchResult/SearchResults";
 import Overview from "@/pages/propertyDetails.tsx/Overview";
 import Amenities from "@/pages/propertyDetails.tsx/Amenities";
 import OtherServices from "@/pages/home/OtherServices";
+import Container from "@/utils/Container";
+import PropertiesGridView from "@/components/propertyView/PropertiesGridView";
 
 const PropertyDetailsLayout = ({ property, value, setValue }: {property: IProperty, value: number[], setValue: (value: number[]) => void}) => {
   return (
     <div>
-      <div> 
+      <Container> 
         <div className="flex gap-10 w-[70%] border-b py-4">
           <div>
             <h1 className="text-[18px] font-semibold px-2">{property.title}</h1>
@@ -21,7 +23,7 @@ const PropertyDetailsLayout = ({ property, value, setValue }: {property: IProper
               <span className="ml-2">{property.location}</span>
             </p>
           </div>
-          <h1 className="text-[18px] font-extrabold">{property.price}</h1>
+          <h1 className="text-[18px] font-extrabold">${property.price}</h1>
         </div>
 
         <div className="flex">
@@ -116,8 +118,9 @@ const PropertyDetailsLayout = ({ property, value, setValue }: {property: IProper
           </aside>
         </div>
         <Amenities/>
-      </div>
+      </Container>
       <OtherServices/>
+      <PropertiesGridView title="Similar Properties"/>
     </div>
   );
 };

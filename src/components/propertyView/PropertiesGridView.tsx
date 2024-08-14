@@ -18,7 +18,7 @@ import {
 import { FaSquare } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 
-const PropertiesGridView = () => {
+const PropertiesGridView = ({title}: {title: string}) => {
   return (
     <Container className="py-10">
       <div className="flex justify-between py-4">
@@ -26,8 +26,8 @@ const PropertiesGridView = () => {
           className="text-3xl font-semibold"
           style={{ fontFamily: "Montserrat" }}
         >
-          Popular Properties
-        </h1>
+          {title || "Properties"}
+        </h1> 
         <Link className="underline text-primary" to="/">
           See All Properties
         </Link>
