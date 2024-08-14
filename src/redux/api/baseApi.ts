@@ -3,10 +3,10 @@ import { BaseQueryApi, BaseQueryFn, DefinitionType, FetchArgs, createApi, fetchB
 import { RootState } from "../store";
 import axios from "axios";
 import { logout, setUser } from "../features/authentication/authSlice";
+import { BaseApi } from "@/utils/BaseApi";
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: "http://localhost:3000/api/v1",
-    // baseUrl: "https://heritage-backend.vercel.app/api/v1",
+    baseUrl: BaseApi,
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
         const token = (getState() as RootState).auth.token
@@ -24,7 +24,7 @@ const interceptor: BaseQueryFn<FetchArgs, BaseQueryApi, DefinitionType> = async 
 
         console.log("sending refresh token")
         const res = await axios.post(
-            "http://localhost:3000/api/v1/refresh",
+            `${BaseApi}/refreshToken`,
             {},
             {
                 withCredentials: true,
