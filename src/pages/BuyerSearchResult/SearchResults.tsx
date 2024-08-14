@@ -15,7 +15,7 @@ interface PropertyDetail {
 }
 
 export interface IProperty {
-  id: number;
+  _id: number;
   title: string;
   location: string;
   price: string;
@@ -88,7 +88,7 @@ const SearchResults = () => {
         </div>
         <div>
           {properties?.map((property: IProperty) => (
-            <Link key={property.id} to={`/propertyDetails/${property.id}`}>
+            <Link key={property._id} to={`/propertyDetails/${property._id}`}>
               <div className="grid grid-cols-4 gap-2 mb-10">
                 <div>
                   <img
