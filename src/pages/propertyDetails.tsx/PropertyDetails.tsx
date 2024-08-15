@@ -11,12 +11,12 @@ import Swal from "sweetalert2";
 
 const PropertyDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const [value, setValue] = useState([20000]);
   const { data, isLoading, isError, error } = useGetPropertyQuery(id);
   const property = data?.data;
   const [placeBid] = usePostBidMutation();
   const user = useAppSelector(selectUser);
-
+  const [value, setValue] = useState([property?.currentBid || 0]);
+console.log(property);
   const handleBid = async () => {
     try {
       const res = await placeBid({

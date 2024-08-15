@@ -23,6 +23,7 @@ export interface IProperty {
   status: string;
   image: string[];
   details: PropertyDetail[];
+  currentBid: number;
 }
 
 const SearchResults = () => {
