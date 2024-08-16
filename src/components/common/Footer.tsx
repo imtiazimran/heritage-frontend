@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className={cn("bg-accent text-gray-700 py-8 md:py-16")}>
-      <Container className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 justify-items-center my-5">
-        <div className={cn("col-span-1 lg:col-span-3 text-center lg:text-left")}>
+      <Container className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-8 justify-items-center my-5">
+        <div className={cn("col-span-2 md:col-span-3 text-center md:text-left")}>
           <div>
-            <img className="w-14 mx-auto lg:mx-0" src={logo} alt="Heritage Nest Logo" />
+            <img className="w-14 mx-auto md:mx-0" src={logo} alt="Heritage Nest Logo" />
           </div>
-          <p className={cn("text-[14px] sm:text-[16px] font-medium text-muted mt-4 lg:mt-2")}>
+          <p className={cn("text-[14px] sm:text-[16px] font-medium text-muted mt-4 md:mt-2")}>
             Design amazing digital experiences <br /> that create more happy in the world.
           </p>
         </div>
@@ -186,4 +186,4 @@ function Footer() {
   );
 }
 
-export default Footer
+export default Footer;
