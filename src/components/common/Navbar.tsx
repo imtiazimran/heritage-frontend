@@ -1,5 +1,5 @@
-
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import Container from "@/utils/Container";
 import logo from "../../assets/logo.png";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,10 +8,12 @@ import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/comp
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Swal from "sweetalert2";
 import { logout } from "@/redux/features/authentication/authSlice";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     Swal.fire({
@@ -36,42 +38,61 @@ const Navbar = () => {
 
   return (
     <div className="shadow-md">
-      <Container className="flex lg:justify-between items-center py-3 font-normal text-lg">
-        <ul className="flex gap-8 cursor-pointer">
+      <Container className="flex justify-between items-center py-3 font-normal text-lg">
+        <div className="flex items-center justify-between w-full lg:w-auto">
+          <Link to={"/"}>
+            <img className="w-8" src={logo} alt="Logo" />
+          </Link>
+          <button
+            className="lg:hidden text-gray-700 text-2xl focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+
+        <ul
+          className={`flex-col lg:flex-row flex lg:flex gap-8 cursor-pointer items-center absolute lg:relative w-full lg:w-auto left-0 top-14 lg:top-auto lg:space-x-8 bg-white lg:bg-transparent p-5 lg:p-0 transition-transform duration-300 ease-in-out transform ${
+            menuOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"
+          }`}
+        >
           <li>
-            <NavLink to="/buy" className={({ isActive }) =>
-              isActive ? "text-blue-500 font-bold" : "text-gray-700"
-            }>
+            <NavLink
+              to="/buy"
+              className={({ isActive }) =>
+                isActive ? "text-blue-500 font-bold" : "text-gray-700"
+              }
+            >
               Buy
             </NavLink>
           </li>
           <li>
-            <NavLink to="/sell" className={({ isActive }) =>
-              isActive ? "text-blue-500 font-bold" : "text-gray-700"
-            }>
+            <NavLink
+              to="/sell"
+              className={({ isActive }) =>
+                isActive ? "text-blue-500 font-bold" : "text-gray-700"
+              }
+            >
               Sell
             </NavLink>
           </li>
           <li>
-            <NavLink to="/service" className={({ isActive }) =>
-              isActive ? "text-blue-500 font-bold" : "text-gray-700"
-            }>
+            <NavLink
+              to="/service"
+              className={({ isActive }) =>
+                isActive ? "text-blue-500 font-bold" : "text-gray-700"
+              }
+            >
               Service
             </NavLink>
           </li>
-        </ul>
-
-        <div>
-          <Link to={"/"}>
-            <img className="w-8" src={logo} alt="Logo" />
-          </Link>
-        </div>
-
-        <ul className="flex gap-8 cursor-pointer">
           <li>
-            <NavLink to="/manage-rental" className={({ isActive }) =>
-              isActive ? "text-blue-500 font-bold" : "text-gray-700"
-            }>
+            <NavLink
+              to="/manage-rental"
+              className={({ isActive }) =>
+                isActive ? "text-blue-500 font-bold" : "text-gray-700"
+              }
+            >
               Manage Rental
             </NavLink>
           </li>
@@ -102,9 +123,12 @@ const Navbar = () => {
                 </Tooltip>
               </TooltipProvider>
             ) : (
-              <NavLink to="/login" className={({ isActive }) =>
-                isActive ? "text-blue-500 font-bold" : "text-gray-700"
-              }>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-500 font-bold" : "text-gray-700"
+                }
+              >
                 Login
               </NavLink>
             )}
