@@ -33,9 +33,10 @@ console.log(property);
         });
       }
     } catch (err: any) {
+      console.log(err);
       Swal.fire({
         title: "Error!",
-        text: "There was an issue placing your bid. Please try again.",
+        text: err?.data.message +  " current bid Is $" + property?.currentBid || "Something went wrong.",
         icon: "error",
         confirmButtonText: "OK",
       });

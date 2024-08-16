@@ -24,6 +24,8 @@ export interface IProperty {
   image: string[];
   details: PropertyDetail[];
   currentBid: number;
+  minBid: number;
+  maxBid: number;
 }
 
 const SearchResults = () => {

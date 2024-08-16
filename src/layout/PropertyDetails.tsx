@@ -65,7 +65,7 @@ const PropertyDetailsLayout = ({ property, value, setValue, handleBid }: {proper
                     Property Value
                   </h3>
                   <h1 className="text-[18px] font-extrabold">
-                    ${Number(property.price)} - ${Number(property.currentBid)}
+                    ${Number(property.price)} - ${Number(property.maxBid)}
                   </h1>
                   <p className="text-muted py-4">
                     Your bid can not be than 10% of the property Minimum value.
@@ -73,17 +73,17 @@ const PropertyDetailsLayout = ({ property, value, setValue, handleBid }: {proper
                 </div>
                 <div className="grid w-full max-w-sm py-2 items-center gap-1.5">
                   <Label htmlFor="min">Min</Label>
-                  <Input type="text" id="min" placeholder={`$ ${property?.price}`} />
+                  <Input type="text" id="min" placeholder={`$ ${property?.minBid}`} />
                 </div>
                 <div className="grid w-full max-w-sm items-center gap-1.5">
                   <Label htmlFor="min">Max</Label>
-                  <Input type="text" id="max" placeholder={`$ ${Number(property.price) + Number(500000)}`} />
+                  <Input type="text" id="max" placeholder={`$ ${Number(property.maxBid) + Number(500000)}`} />
                 </div>
                 <div className="py-4">
                   <Slider.Root
                     className="relative flex items-center"
-                    defaultValue={[Number(property.currentBid)]}
-                    max={Number(property.price) + Number(500000)}
+                    defaultValue={[Number(property.minBid)]}
+                    max={Number(property.maxBid) }
                     onValueChange={(newValue) => setValue(newValue)}
                   >
                     <Slider.Track className="relative flex-grow h-2 bg-gray-200 rounded-full">
