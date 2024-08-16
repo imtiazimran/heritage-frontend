@@ -38,22 +38,21 @@ const Navbar = () => {
 
   return (
     <div className="shadow-md">
-      <Container className="flex justify-between items-center py-3 font-normal text-lg">
-        <div className="flex items-center justify-between w-full lg:w-auto">
-          <Link to={"/"}>
-            <img className="w-8" src={logo} alt="Logo" />
-          </Link>
-          <button
-            className="lg:hidden text-gray-700 text-2xl focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <FaTimes /> : <FaBars />}
-          </button>
-        </div>
+      <Container className="flex justify-between items-center py-3 font-normal text-lg relative">
+        <Link to={"/"}>
+          <img className="w-8" src={logo} alt="Logo" />
+        </Link>
+
+        <button
+          className="lg:hidden text-gray-700 text-2xl focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
 
         <ul
-          className={`flex-col lg:flex-row flex lg:flex gap-8 cursor-pointer items-center absolute lg:relative w-full lg:w-auto left-0 top-14 lg:top-auto lg:space-x-8 bg-white lg:bg-transparent p-5 lg:p-0 transition-transform duration-300 ease-in-out transform ${
-            menuOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"
+          className={`lg:flex gap-8 items-center absolute lg:static left-0 top-0 lg:top-auto w-full lg:w-auto bg-white lg:bg-transparent py-5 lg:py-0 px-5 lg:px-0 transition-transform duration-300 ease-in-out transform ${
+            menuOpen ? "translate-y-0" : "-translate-y-full lg:translate-y-0"
           }`}
         >
           <li>
