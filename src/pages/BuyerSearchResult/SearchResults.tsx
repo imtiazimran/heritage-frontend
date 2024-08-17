@@ -1,10 +1,10 @@
-import  { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
-import Container from "@/utils/Container";
-import { FaLocationPin } from "react-icons/fa6";
-import { Link, useLocation } from "react-router-dom";
-import { useGetPropertiesQuery } from "@/redux/features/properties/propertyApi";
-import Pagination from "@/utils/Pagination"; // Adjust the import path as needed
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import Container from '@/utils/Container';
+import { FaLocationPin } from 'react-icons/fa6';
+import { Link, useLocation } from 'react-router-dom';
+import { useGetPropertiesQuery } from '@/redux/features/properties/propertyApi';
+import Pagination from '@/utils/Pagination';
 import Loading from '@/utils/Loading';
 
 // Define the types for the property details and the property itself
@@ -14,7 +14,7 @@ interface PropertyDetail {
   icon: string;
 }
 
-export interface IProperty {
+interface IProperty {
   _id: number;
   title: string;
   location: string;
@@ -28,19 +28,64 @@ export interface IProperty {
   maxBid: number;
 }
 
-const SearchResults = () => {
+// PropertyCard Component
+const PropertyCard: React.FC<{ property: IProperty }> = ({ property }) => {
+  return (
+    <Link key={property._id} to={`/propertyDetails/${property._id}`}>
+      <div className="bg-white rounded-lg shadow-md overflow-hidden md:flex md:gap-4 mb-6">
+        <img
+          className="w-full h-48 object-cover md:w-1/3"
+          src={property.image[0]}
+          alt={property.title}
+        />
+        <div className="p-4 flex flex-col justify-between flex-1">
+          <div>
+            <h1 className="text-lg font-semibold">{property.title}</h1>
+            <p className="flex items-center text-gray-500 text-sm mt-2">
+              <FaLocationPin className="text-secondary mr-2" />
+              {property.location}
+            </p>
+            <h1 className="text-xl font-semibold mt-2">${property.price}</h1>
+          </div>
+          <Button variant="outline" className="mt-4">
+            Bid Property
+          </Button>
+          <div className="mt-4 border-t border-gray-300 pt-2">
+            <div className="flex items-center">
+              <span className="text-sm font-medium">Property Details</span>
+            </div>
+            <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {property.details.map((detail, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <img className="w-6 h-6" src={detail.icon} alt={detail.label} />
+                  <div>
+                    <h2 className="text-sm font-medium">{detail.label}</h2>
+                    <p className="text-sm text-gray-600">{detail.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+// SearchResults Component
+const SearchResults: React.FC = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const [limit, setLimit] = useState(10); // Default limit
   const [page, setPage] = useState(1);
 
   const searchQuery = {
-    search: params.get("search"),
-    location: params.get("location"),
-    propertyType: params.get("propertyType"),
-    price: params.get("budget"),
-    page: page,
-    limit: limit,
+    search: params.get('search'),
+    location: params.get('location'),
+    propertyType: params.get('propertyType'),
+    price: params.get('budget'),
+    page,
+    limit,
   };
 
   const searchParams = Object.entries(searchQuery)
@@ -50,11 +95,6 @@ const SearchResults = () => {
   const { data, isLoading } = useGetPropertiesQuery(searchParams);
   const properties = data?.data;
   const pagination = data?.meta;
-
-  useEffect(() => {
-    // Trigger data fetch whenever `page` or `limit` changes
-    // The API hook will handle the new request automatically
-  }, [page, limit]);
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
@@ -66,14 +106,14 @@ const SearchResults = () => {
   };
 
   if (isLoading) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   return (
     <Container className="py-10">
-      <div className="w-[70%]">
+      <div className="w-full md:w-[70%]">
         <div>
-          <div className="bar flex gap-10 border-b py-4">
+          <div className="bar flex flex-col gap-3 md:gap-10 border-b py-4">
             <Button className="bg-primary text-white text-[16px] font-medium rounded-tl-[4px] rounded-br-[4px] px-[24px] py-[16px] gap-[12px] hover:bg-blue-950 opacity-100">
               Properties
             </Button>
@@ -85,77 +125,20 @@ const SearchResults = () => {
             </Button>
           </div>
           <h1 className="text-xl font-bold my-4">
-            {pagination?.total} Results on {params.get("tab")}
-            
+            {pagination?.total} Results on {params.get('tab')}
           </h1>
         </div>
         <div>
           {properties?.map((property: IProperty) => (
-            <Link key={property._id} to={`/propertyDetails/${property._id}`}>
-              <div className="grid grid-cols-4 gap-2 mb-10">
-                <div>
-                  <img
-                    className="w-full h-full object-cover rounded-lg"
-                    src={property.image[0]}
-                    alt={property.title}
-                  />
-                </div>
-                <div className="flex flex-col gap-5 col-span-3">
-                  <div className="flex justify-between">
-                    <div>
-                      <h1 className="text-[18px] font-semibold px-2">
-                        {property.title}
-                      </h1>
-                      <p className="flex items-center text-[#667085] text-[16px] py-3">
-                        <FaLocationPin className="text-secondary" />
-                        <span className="ml-2">{property.location}</span>
-                      </p>
-                    </div>
-                    <div>
-                      <h1 className="text-[18px] font-semibold">
-                        ${property.price}
-                      </h1>
-                      <Button variant={"outline"} className="my-3">
-                        Bid Property
-                      </Button>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center">
-                      <span className="ml-2 w-[35%]">Property Details</span>
-                      <span className="w-full border-t border-gray-400"></span>
-                    </div>
-                    <div className="flex justify-between mt-4">
-                      {property.details.map(
-                        (detail: PropertyDetail, index: number) => (
-                          <div key={index} className="flex gap-2 items-center">
-                            <img
-                              className="size-10"
-                              src={detail.icon}
-                              alt={detail.label}
-                            />
-                            <div>
-                              <h1 className="font-medium text-[#303030]">
-                                {detail.label}
-                              </h1>
-                              <p className="text-[#535353]">{detail.value}</p>
-                            </div>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <PropertyCard key={property._id} property={property} />
           ))}
         </div>
         {pagination && (
           <Pagination
-            page={pagination?.page}
-            limit={pagination?.limit}
-            total={pagination?.total}
-            totalPage={pagination?.totalPage}
+            page={pagination.page}
+            limit={pagination.limit}
+            total={pagination.total}
+            totalPage={pagination.totalPage}
             onPageChange={handlePageChange}
             onLimitChange={handleLimitChange}
           />
