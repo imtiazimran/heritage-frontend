@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import Container from '@/utils/Container';
-import { FaLocationPin } from 'react-icons/fa6';
-import { Link, useLocation } from 'react-router-dom';
-import { useGetPropertiesQuery } from '@/redux/features/properties/propertyApi';
-import Pagination from '@/utils/Pagination';
-import Loading from '@/utils/Loading';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import Container from "@/utils/Container";
+import { FaLocationPin } from "react-icons/fa6";
+import { Link, useLocation } from "react-router-dom";
+import { useGetPropertiesQuery } from "@/redux/features/properties/propertyApi";
+import Pagination from "@/utils/Pagination";
+import Loading from "@/utils/Loading";
 
 // Define the types for the property details and the property itself
 interface PropertyDetail {
@@ -34,7 +34,7 @@ const PropertyCard: React.FC<{ property: IProperty }> = ({ property }) => {
     <Link key={property._id} to={`/propertyDetails/${property._id}`}>
       <div className="bg-white rounded-lg shadow-md overflow-hidden md:flex md:gap-4 mb-6">
         <img
-          className="w-full h-48 object-cover md:w-1/3"
+          className="w-full object-cover md:w-1/3"
           src={property.image[0]}
           alt={property.title}
         />
@@ -54,10 +54,14 @@ const PropertyCard: React.FC<{ property: IProperty }> = ({ property }) => {
             <div className="flex items-center">
               <span className="text-sm font-medium">Property Details</span>
             </div>
-            <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {property.details.map((detail, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <img className="w-6 h-6" src={detail.icon} alt={detail.label} />
+                  <img
+                    className="w-6 h-6"
+                    src={detail.icon}
+                    alt={detail.label}
+                  />
                   <div>
                     <h2 className="text-sm font-medium">{detail.label}</h2>
                     <p className="text-sm text-gray-600">{detail.value}</p>
@@ -80,10 +84,10 @@ const SearchResults: React.FC = () => {
   const [page, setPage] = useState(1);
 
   const searchQuery = {
-    search: params.get('search'),
-    location: params.get('location'),
-    propertyType: params.get('propertyType'),
-    price: params.get('budget'),
+    search: params.get("search"),
+    location: params.get("location"),
+    propertyType: params.get("propertyType"),
+    price: params.get("budget"),
     page,
     limit,
   };
@@ -113,7 +117,7 @@ const SearchResults: React.FC = () => {
     <Container className="py-10">
       <div className="w-full md:w-[70%]">
         <div>
-          <div className="bar flex flex-col gap-3 md:gap-10 border-b py-4">
+          <div className="bar flex flex-col md:flex-row gap-3 md:gap-10 border-b py-4">
             <Button className="bg-primary text-white text-[16px] font-medium rounded-tl-[4px] rounded-br-[4px] px-[24px] py-[16px] gap-[12px] hover:bg-blue-950 opacity-100">
               Properties
             </Button>
@@ -124,8 +128,9 @@ const SearchResults: React.FC = () => {
               Pre-Launch Offers
             </Button>
           </div>
+
           <h1 className="text-xl font-bold my-4">
-            {pagination?.total} Results on {params.get('tab')}
+            {pagination?.total} Results on {params.get("tab")}
           </h1>
         </div>
         <div>
