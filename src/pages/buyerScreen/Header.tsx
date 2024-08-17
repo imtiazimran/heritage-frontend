@@ -57,7 +57,7 @@ const Header = () => {
   };
 
   return (
-    <div className="h-screen my-10">
+    <div className="h-screen md:h-[67vh] my-10 md:my-0">
       <div
         className="relative w-full h-[309px] bg-cover bg-center"
         style={{
