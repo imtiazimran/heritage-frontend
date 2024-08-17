@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const FlatSummery = () => {
   return (
-    <Container>
+    <Container className="my-10 py-10">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
         <Card className="bg-[#FDF0E7]">
           <CardHeader>
