@@ -1,15 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Container from "@/utils/Container";
 import logo from "../../assets/logo.png";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "@/redux/features/authentication/authSlice";
-import {
-  TooltipProvider,
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Swal from "sweetalert2";
 import { logout } from "@/redux/features/authentication/authSlice";
@@ -19,6 +13,7 @@ const Navbar = () => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const [menuOpen, setMenuOpen] = useState(false);
+  const profileMenuRef = useRef(null);
 
   const handleLogout = () => {
     Swal.fire({
@@ -40,12 +35,12 @@ const Navbar = () => {
   return (
     <div className="shadow-md">
       <Container className="flex justify-between items-center py-3 font-normal text-lg relative">
-        <Link to={"/"}>
+        <Link to={"/"}>     
           <img className="w-8" src={logo} alt="Logo" />
         </Link>
         <ul
           id="navbar-menu"
-          className={`lg:flex gap-8 items-center  lg:static left-0 top-0 w-full lg:w-auto bg-white lg:bg-transparent transition-transform duration-300 ease-in-out transform ${
+          className={`lg:flex gap-8 items-center lg:static left-0 top-0 w-full lg:w-auto bg-white lg:bg-transparent transition-transform duration-300 ease-in-out transform ${
             menuOpen ? "hidden " : "hidden "
           }`}
         >
@@ -61,35 +56,29 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          <li>
+          <li ref={profileMenuRef} className="">
             {user ? (
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Avatar className="cursor-pointer">
-                      <AvatarImage
-                        src={user.avatarUrl || ""}
-                        alt={user.firstName}
-                      />
-                      <AvatarFallback>{user.firstName[0]}</AvatarFallback>
-                    </Avatar>
-                  </TooltipTrigger>
-                  <TooltipContent className="mt-2">
-                    <div className="flex flex-col items-center">
-                      <p className="mb-2">{user.username}</p>
-                      <button
-                        className="px-4 py-2 bg-red-500 text-white rounded"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleLogout();
-                        }}
-                      >
-                        Logout
-                      </button>
-                    </div>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <div className="flex justify-center items-center gap-2">
+                <Avatar className="cursor-pointer">
+                  <AvatarImage
+                    src={user.avatarUrl || ""}
+                    alt={user.firstName}
+                  />
+                  <AvatarFallback>{user.firstName[0]}</AvatarFallback>
+                </Avatar>
+
+                <div className="  bg-white rounded-lg ">
+                  <button
+                    className="w-full text-left  text-red-500 hover:bg-red-100"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLogout();
+                    }}
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
             ) : (
               <NavLink
                 to="/login"
@@ -115,7 +104,7 @@ const Navbar = () => {
       <Container className="block md:hidden">
         <ul
           id="navbar-menu"
-          className={`lg:flex gap-8 items-center  lg:static left-0 top-0 w-full lg:w-auto bg-white lg:bg-transparent transition-transform duration-300 ease-in-out transform ${
+          className={`lg:flex gap-8 items-center lg:static left-0 top-0 w-full lg:w-auto bg-white lg:bg-transparent transition-transform duration-300 ease-in-out transform ${
             menuOpen ? " block" : "hidden "
           }`}
         >
@@ -131,35 +120,31 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          <li>
+          <li ref={profileMenuRef} className="relative">
             {user ? (
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Avatar className="cursor-pointer">
-                      <AvatarImage
-                        src={user.avatarUrl || ""}
-                        alt={user.firstName}
-                      />
-                      <AvatarFallback>{user.firstName[0]}</AvatarFallback>
-                    </Avatar>
-                  </TooltipTrigger>
-                  <TooltipContent className="mt-2">
-                    <div className="flex flex-col items-center">
-                      <p className="mb-2">{user.username}</p>
-                      <button
-                        className="px-4 py-2 bg-red-500 text-white rounded"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleLogout();
-                        }}
-                      >
-                        Logout
-                      </button>
-                    </div>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <div>
+                <Avatar className="cursor-pointer">
+                  <AvatarImage
+                    src={user.avatarUrl || ""}
+                    alt={user.firstName}
+                  />
+                  <AvatarFallback>{user.firstName[0]}</AvatarFallback>
+                </Avatar>
+                
+                  <div className=" right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2">
+                    
+                    <button
+                      className="w-full text-left text-red-500 hover:bg-red-100"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleLogout();
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                
+              </div>
             ) : (
               <NavLink
                 to="/login"
