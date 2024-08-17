@@ -9,7 +9,7 @@ const Feature = () => {
       {/* First Section */}
       <div className="flex flex-wrap justify-between items-center  mb-10 h-screen">
         {/* Background Image */}
-        <div className="w-full md:w-1/2 h-64 relative mb-8 md:mb-0">
+        <div className="w-full md:w-1/2 h-64 relative mb-8 md:mb-0 my-10">
           <img
             src="https://bandaproperty.com/wp-content/uploads/2023/03/Perry-Street_Living-Room_040-scaled.jpg"
             alt="Background Image"
