@@ -51,7 +51,7 @@ const Feature = () => {
           <img
             src="https://bandaproperty.com/wp-content/uploads/2023/03/Perry-Street_Living-Room_040-scaled.jpg"
             alt="Background Image"
-            className="w-[70%] absolute top-2/4 left-0 h-full object-cover rounded-lg"
+            className="w-[70%] absolute top-2/4 left-0 h-full object-cover rounded-lg border-4 border-white z-10"
           />
           {/* Overlay Image */}
 
@@ -59,7 +59,7 @@ const Feature = () => {
           <img
             src="https://bandaproperty.com/wp-content/uploads/2023/06/230518-Banda-Paris-02-Print-scaled.jpg"
             alt="Overlay Image"
-            className="absolute -top-1/5 left-1/4 w-[70%] h-auto rounded-lg border-4 border-white shadow-lg z-10"
+            className="absolute -top-1/5 left-1/4 w-[70%] h-auto  shadow-lg "
           />
         </div>
         <div className="w-full md:w-1/2 pl-8 mt-11">
