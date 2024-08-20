@@ -15,6 +15,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const profileMenuRef = useRef(null);
 
+
+
   const handleLogout = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -61,10 +63,10 @@ const Navbar = () => {
               <div className="flex justify-center items-center gap-2">
                 <Avatar className="cursor-pointer">
                   <AvatarImage
-                    src={user.avatarUrl || ""}
-                    alt={user.firstName}
+                    src={user?.avatarUrl || ""}
+                    alt={user?.name }
                   />
-                  <AvatarFallback>{user.firstName[0]}</AvatarFallback>
+                  <AvatarFallback>{user?.name.slice(0, 1)}</AvatarFallback>
                 </Avatar>
 
                 <div className="  bg-white rounded-lg ">
@@ -125,10 +127,10 @@ const Navbar = () => {
               <div>
                 <Avatar className="cursor-pointer">
                   <AvatarImage
-                    src={user.avatarUrl || ""}
-                    alt={user.firstName}
+                    src={user?.avatarUrl || ""}
+                    alt={user?.name}
                   />
-                  <AvatarFallback>{user.firstName[0]}</AvatarFallback>
+                 <AvatarFallback>{user?.name.slice(0, 1)}</AvatarFallback>
                 </Avatar>
                 
                   <div className=" right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2">
