@@ -13,7 +13,7 @@ const AboutCard = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black/90"></div>
         </div>
-        <div className="absolute inset-0 w-full lg:w-[50%] h-[200px] lg:h-auto bg-accent top-1/2 lg:top-auto lg:left-1/2 px-4 z-50">
+        <div className="absolute inset-0 w-full lg:w-[50%] h-[240px] lg:h-auto bg-accent top-1/2 lg:top-auto lg:left-1/2 px-4 z-50">
           <div className="flex items-center gap-2 mt-4">
             <div className="w-8 border h-[1px] border-secondary"></div>
             <p className="text-secondary font-semibold">Our Story</p>
@@ -43,7 +43,7 @@ const AboutCard = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black/90"></div>
         </div>
-        <div className="absolute inset-0 w-full lg:w-[50%] h-[200px] lg:h-auto bg-accent top-1/2 lg:top-auto lg:right-1/2 px-4 z-50 ">
+        <div className="absolute inset-0 w-full lg:w-[50%] h-[240px] lg:h-auto bg-accent top-1/2 lg:top-auto lg:right-1/2 px-4 z-50 ">
           <div className="flex items-center gap-2 mt-4">
             <div className="w-8 border h-[1px] border-secondary"></div>
             <p className="text-secondary font-semibold">Mission Statement</p>
