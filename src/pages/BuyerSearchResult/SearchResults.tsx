@@ -14,7 +14,7 @@ interface PropertyDetail {
   icon: string;
 }
 
-interface IProperty {
+export interface IProperty {
   _id: number;
   title: string;
   location: string;

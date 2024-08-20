@@ -4,13 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import * as Slider from "@radix-ui/react-slider";
 import { Button } from "@/components/ui/button";
-import { IProperty } from "@/pages/BuyerSearchResult/SearchResults";
 import Overview from "@/pages/propertyDetails.tsx/Overview";
 import Amenities from "@/pages/propertyDetails.tsx/Amenities";
 import OtherServices from "@/pages/home/OtherServices";
 import Container from "@/utils/Container";
 import PropertiesGridView from "@/components/propertyView/PropertiesGridView";
 import { useGetPropertiesQuery } from "@/redux/features/properties/propertyApi";
+import { IProperty } from "@/pages/BuyerSearchResult/SearchResults";
 
 const PropertyDetailsLayout = ({ property, value, setValue, handleBid }: {property: IProperty, value: number[], setValue: (value: number[]) => void, handleBid: () => void}) => {
 
